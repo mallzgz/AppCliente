@@ -21,22 +21,18 @@ public class SearchController {
     }*/
 
     @RequestMapping("/search")
-    public SearchResults search(@RequestParam("libro") String libro, @RequestParam("autor") String autor,
-    		@RequestParam("personaje") String personaje, @RequestParam("link") String link) {
+    public SearchResults search(@RequestParam("book") String book, @RequestParam("author") String author,
+    		@RequestParam("character") String character, @RequestParam("link") String link) {
     	//m.addAttribute("res", twitter.search(q));
         //return "search :: content";
-    	if (libro.equals("") && autor.equals("") && personaje.equals("") && link.equals("")){
-    		//Devolvemos error (No hay parámetros)
+    	if (book.equals("") && author.equals("") && character.equals("") && link.equals("")){
+    		//Error (no parameters)
     		
     		return null;
     	}
-    	else if (libro.equals("") && autor.equals("") && personaje.equals("") && link.equals("")){
-    		//Devolvemos error (No hay parámetros)
-    		
-    		return null;
-    	}
+
     	else{
-        return twitter.search(libro+autor+personaje+link);
+        return twitter.search(book+author+character+link);
     	}
     }
     
