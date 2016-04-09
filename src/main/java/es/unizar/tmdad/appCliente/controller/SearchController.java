@@ -30,6 +30,11 @@ public class SearchController {
     		
     		return null;
     	}
+    	else if (libro.equals("") && autor.equals("") && personaje.equals("") && link.equals("")){
+    		//Devolvemos error (No hay parámetros)
+    		
+    		return null;
+    	}
     	else{
         return twitter.search(libro+autor+personaje+link);
     	}

@@ -31,17 +31,13 @@
 	        if(search.libro.value == "" && search.autor.value == "" && 
 	        		search.personaje.value == "" && search.link.value == "")
 	        {
-		           document.getElementById('errfn1').innerHTML="Error. Debe introducir algún parámetro.";
-		           document.getElementById('errfn2').innerHTML="Error. Debe introducir algún parámetro.";
-		           document.getElementById('errfn3').innerHTML="Error. Debe introducir algún parámetro.";
-		           document.getElementById('errfn4').innerHTML="Error. Debe introducir algún parámetro.";
+		           document.getElementById('errfn').innerHTML="Error. Debe introducir algún parámetro.";
+
 	        }
 	        
-	        else{
-	        	document.getElementById('errfn1').innerHTML="";
-		           document.getElementById('errfn2').innerHTML="";
-		           document.getElementById('errfn3').innerHTML="";
-		           document.getElementById('errfn4').innerHTML="";
+	       else{
+	        	   document.getElementById('errfn').innerHTML="";
+
 	        }
 	    }
 	</script>
@@ -100,8 +96,6 @@
         		</div>
         	</div>
 	    </div>
-	    <span style="color:red;" id="errfn1"></span>
-        			<br> <br>
         <div class="row">&nbsp;</div>
         
         <div class="row">
@@ -119,8 +113,6 @@
         		</div>
         	</div>
 	    </div>
-	    <span style="color:red;" id="errfn2"></span>
-        			<br> <br>
         <div class="row">&nbsp;</div>
         <div class="row">
 		    <div class="col-xs-7">
@@ -138,8 +130,6 @@
         		</div>
         	</div>
 	    </div>
-	   <span style="color:red;" id="errfn3"></span>
-       <br> <br>
         <div class="row">&nbsp;</div>
         <div class="row">
 		    <div class="col-xs-7">
@@ -157,8 +147,10 @@
         		</div>
         	</div>
 	    </div>
-	    <span style="color:red;" id="errfn4"></span>
-        			<br> <br>
+	    <div class="row">&nbsp;</div>
+	    <div class="row">&nbsp;</div>
+	    
+	    <b><span style="color:red;" id="errfn"></span></b>
         <div class="row">&nbsp;</div>
     </form>
     <div class="row">&nbsp;</div>
