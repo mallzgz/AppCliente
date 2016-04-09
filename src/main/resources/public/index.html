@@ -1,0 +1,162 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cliente MVC Twitter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+            id="Viewport" name="viewport"/>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" media="screen"
+          href="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap.min.css}"/>
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"
+          th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap-theme.min.css}"/>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"
+            th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.1/js/bootstrap.min.js}"></script>
+    <script th:src="@{/functions.js}" src="../functions.js"></script>
+    <script th:src="@{/mustache.js}" src="../mustache.js"></script> 
+    
+    <!-- Plantilla de mustache creada para mostrar todos los tuits -->
+   
+    <script id="plantillaTwitter" type="text/template">
+		{{#tweets}}
+		<div class="row panel panel-default" th:fragment="content">
+    		<div class="panel-heading">
+        		<a href="https://twitter.com/{{fromUser}}" th:href:"https://twitter.com/{{fromUser}}"
+           			target="_blank"><b th:text="@{{fromUser}}">{{fromUser}}</b></a>
+        		<div class="pull-right">
+            	<a href="https://twitter.com/{{fromUser}}/status/{{idStr}}"
+               		th:href="https://twitter.com/{{fromUser}}/status/{{idStr}}"
+               		target="_blank"><span class="glyphicon glyphicon-link"></span></a>
+        		</div>
+    		</div>
+    		<div class="panel-body" th:text={{unmodifiedText}}>{{unmodifiedText}}
+    		</div>
+		</div>
+		{{/tweets}}
+	</script>
+	
+	
+    <!-- Latest compiled and minified JavaScript -->
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <p class="navbar-brand">Análisis de características de personajes y figuras emblemáticas en la literatura
+</p>
+        <p class="navbar-text">Desarrollo de Aplicaciones Distribuidas
+            2015-2016</p>
+    </div>
+    <div class="nav navbar-center">
+        <a title="UNIZAR" href="http://www.unizar.es"><img height="80"
+                                                           th:src="@{/logoUZ.png}" src="../logoUZ.png"
+                                                           alt=""/></a>
+    </div>
+</nav>
+<div class="container">
+    <!-- Formulario principal -->
+    <form id="search1" action="search1" method="get">
+      	<div class="row">
+		    <div class="col-xs-7">
+		      <strong>Búsqueda por LIBRO:</strong><br>&nbsp;
+		    </div>
+  		</div>
+        <div class="row">
+        	<div class="col-xs-5">
+        		<div class="input-group">
+		            <input type="text" class="form-control" id="q" name="q"
+		                   placeholder="Inserte LIBRO a buscar"/>
+		            <span class="input-group-btn">
+            			<button type="submit" class="btn btn-default center-block">Buscar</button>
+	   				</span>
+        		</div>
+        	</div>
+	    </div>
+        <div class="row">&nbsp;</div>
+    </form>
+    <div class="row">&nbsp;</div>
+    <div id="resultsBlock1"></div>
+</div>
+<div class="container">
+    <!-- Formulario principal -->
+    <form id="search2" action="search2" method="get">
+        <div class="row">
+		    <div class="col-xs-7">
+		      <strong>Búsqueda por AUTOR:</strong><br>&nbsp;
+		    </div>
+  		</div>
+        <div class="row">
+        	<div class="col-xs-5">
+        		<div class="input-group">
+		            <input type="text" class="form-control" id="r" name="r"
+		                   placeholder="Inserte AUTOR a buscar"/>
+		            <span class="input-group-btn">
+            			<button type="submit" class="btn btn-default center-block">Buscar</button>
+	   				</span>
+        		</div>
+        	</div>
+	    </div>
+        <div class="row">&nbsp;</div>
+    </form>
+    <div class="row">&nbsp;</div>
+    <div id="resultsBlock2"></div>
+</div>
+<div class="container">
+    <!-- Formulario principal -->
+    <form id="search3" action="search3" method="get">
+        <div class="row">
+		    <div class="col-xs-7">
+		      <strong>Búsqueda por PERSONAJE:</strong><br>&nbsp;
+		    </div>
+  		</div>
+        <div class="row">
+        	<div class="col-xs-5">
+        		<div class="input-group">
+		            <input type="text" class="form-control" id="s" name="s"
+		                   placeholder="Inserte PERSONAJE a buscar"/>
+		            <span class="input-group-btn">
+            			<button type="submit" class="btn btn-default center-block">Buscar</button>
+	   				</span>
+        		</div>
+        	</div>
+	    </div>
+        <div class="row">&nbsp;</div>
+    </form>
+    <div class="row">&nbsp;</div>
+    <div id="resultsBlock3"></div>
+</div>
+<div class="container">
+    <!-- Formulario principal -->
+    <form id="search4" action="search4" method="get">
+         <div class="row">
+		    <div class="col-xs-7">
+		      <strong>Búsqueda por URL:</strong><br>&nbsp;
+		    </div>
+  		</div>
+        <div class="row">
+        	<div class="col-xs-5">
+        		<div class="input-group">
+		            <input type="text" class="form-control" id="t" name="t"
+		                   placeholder="Inserte URL del libro a buscar"/>
+		            <span class="input-group-btn">
+            			<button type="submit" class="btn btn-default center-block">Buscar</button>
+	   				</span>
+        		</div>
+        	</div>
+	    </div>
+        <div class="row">&nbsp;</div>
+    </form>
+    <div class="row">&nbsp;</div>
+    <div id="resultsBlock4"></div>
+</div>
+</body>
+</html>
