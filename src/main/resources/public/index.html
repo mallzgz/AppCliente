@@ -42,21 +42,17 @@
 	    }
 	</script>
     <script id="plantillaTwitter" type="text/template">
-		{{#tweets}}
-		<div class="row panel panel-default" th:fragment="content">
+	{{title}}
+		{{#chapters}}
+		<div class="row panel panel-default">
     		<div class="panel-heading">
-        		<a href="https://twitter.com/{{fromUser}}" th:href:"https://twitter.com/{{fromUser}}"
-           			target="_blank"><b th:text="@{{fromUser}}">{{fromUser}}</b></a>
-        		<div class="pull-right">
-            	<a href="https://twitter.com/{{fromUser}}/status/{{idStr}}"
-               		th:href="https://twitter.com/{{fromUser}}/status/{{idStr}}"
-               		target="_blank"><span class="glyphicon glyphicon-link"></span></a>
-        		</div>
+				{{name}}
     		</div>
-    		<div class="panel-body" th:text={{unmodifiedText}}>{{unmodifiedText}}
+    		<div class="panel-body" >
+				{{sentences}}
     		</div>
 		</div>
-		{{/tweets}}
+		{{/chapters}}
 	</script>
 	
 	
