@@ -29,7 +29,7 @@ public class SearchController {
     }*/
 
     @RequestMapping("/search")
-    public JSONObject search(@RequestParam("book") String book, @RequestParam("author") String author,
+    public String search(@RequestParam("book") String book, @RequestParam("author") String author,
     		@RequestParam("character") String character, @RequestParam("link") String link) throws IOException, JSONException {
     	
     	//m.addAttribute("res", twitter.search(q));
@@ -47,7 +47,7 @@ public class SearchController {
     		JSONObject json = readJsonFromUrl("http://books-analyzer.herokuapp.com/search?url=http%3A%2F%2Fcdn.preterhuman.net%2Ftexts%2Fliterature%2Fbooks_by_title%2FG+-+M%2FJK+Rowling+-+%281%29Harry+Potter+and+the+Sorcerer%27s+Stone+78500+words.txt");
             System.out.println(json.toString());
             //System.out.println(json.get("id"));
-            return json;
+            return json.toString();
     	}
     }
     

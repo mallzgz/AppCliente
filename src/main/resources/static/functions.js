@@ -11,10 +11,12 @@ function registerSearch() {
 		$.get($(this).attr('action'), {book: $("#book").val(), author: $("#author").val(), 
 			character: $("#character").val(), link: $("#link").val()}, function(data) {
 			//$("#resultsBlock").empty().append(data);
+			console.log("hola3");
 			var plantilla = $('#plantillaTwitter').html();
     		var html = Mustache.to_html(plantilla, data);
     		$("#resultsBlock").empty().append(html);
 		});	
-		
 	});
 }
+
+
