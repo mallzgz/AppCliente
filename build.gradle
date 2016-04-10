@@ -17,7 +17,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'war'
 
 war {
-    baseName = 'lab0'
+    baseName = 'AppCliente'
     version = '2016'
 }
 
@@ -30,7 +30,7 @@ configurations {
 }
 
 bootRepackage {
-    mainClass = 'es.unizar.tmdad.lab0.Application'
+    mainClass = 'es.unizar.tmdad.appCliente.Application'
 }
 
 dependencies {
