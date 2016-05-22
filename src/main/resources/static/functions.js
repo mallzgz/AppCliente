@@ -1,5 +1,4 @@
 function search() {
-	console.log("hola");
 	var title= $("#title").val(); 
 	var author= $("#author").val();
 	var character= $("#character").val();
@@ -8,14 +7,14 @@ function search() {
 	console.log(urlCompleta);
 	$.ajax({
 	    url: urlCompleta,
-	    dataType: 'jsonp',
+	    headers: {"Access-Control-Allow-Origin" : "*"},
+	    dataType: 'json',
 	    cache: 'false',
 	    type: 'GET',
 	    success: function(json){
-	    var plantilla = $('#plantillaTwitter').html();
-		console.log(urlCompleta);
-		$("#resultsBlock").empty().append(Mustache.to_html(plantilla, json));
-		//$("#resultsBlock").empty().append(JSON.stringify(json));
+	    	$.get(window.location.href + '/characterTemplate.html', function(template) {
+	   			$("#resultsBlock").empty().append(Mustache.to_html(template, json));
+	    	});
 	    }
 	});
 }
